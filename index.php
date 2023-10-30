@@ -28,7 +28,6 @@
                 <a href="#">A propos</a>
                 <a href="#">Service</a>
                 <a href="#">Contact</a>
-                
                 <?php if (isset($user)): ?> <!-- Vérifie si l'utilisateur est connecté -->
                     <button onclick="window.location.href='login/deconnexion.php';" class="btnLogin-popup" name="valider"><?= htmlspecialchars($user["nom"]) ?></button> <!-- Affiche le bouton de déconnexion -->
                 <?php else: ?>

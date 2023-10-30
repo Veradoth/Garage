@@ -51,7 +51,7 @@
                 <br>
                 <button type="submit" name="valider"> Se connecter</button> <!-- Bouton pour soumettre le formulaire -->
             </form>
-            <button onclick="window.location.href='../accueil.php';" class="btnLogin-popup">Retour</button> <!-- Bouton pour revenir à la page d'accueil -->
+            <button onclick="window.location.href='../index.php';" class="btnLogin-popup">Retour</button> <!-- Bouton pour revenir à la page d'accueil -->
         </section>
     </body>
 </html>
