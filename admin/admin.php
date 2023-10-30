@@ -32,7 +32,8 @@
                     $name_file = time(). '.jpg'; // Génère un nom unique pour le fichier en utilisant le timestamp actuel
 
                     if(!move_uploaded_file($tmp_file, $content_dir.$name_file)){
-                        exit('Impossible de copier le fichier'); // Arrête l'exécution du code et affiche un message d'erreur si le fichier ne peut pas être copié
+                        $error = error_get_last();
+                        exit('Impossible de copier le fichier. Erreur : ' . $error['message']);
                     }
 
                     $save_voiture = $connexion->prepare('INSERT INTO voiture(immatriculation, marque, modele, mise_circulation, prix, date_rentree, chevaux, descrip, nom_image) VALUES(?,?,?,?,?,?,?,?,?)'); // Prépare une requête SQL d'insertion dans la table 'voiture'
