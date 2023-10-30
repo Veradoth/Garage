@@ -9,7 +9,7 @@
         <h1>Modifier un véhicule</h1>
         <p><a href='admin.php'>Retour</a></p>
         <?php
-        include "../login/connexion_user.php";
+        include "../config/config.php";
         $num = $_POST['numVoiture'];
         $immatriculation = $_POST['newImmatriculation'];
         $marque = $_POST['newMarque'];

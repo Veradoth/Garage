@@ -12,7 +12,7 @@
         <h1>Supprimer un véhicule</h1>
         <p><a href='admin.php'>Retour</a></p>
         <?php
-        include "../login/connexion_user.php";
+        include "../config/config.php";
         $num = $_POST['numVoiture'];
 
         $sql = "DELETE FROM voiture WHERE id = $num;";
