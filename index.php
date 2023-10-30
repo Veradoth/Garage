@@ -40,7 +40,7 @@ elseif (isset($_SESSION["admin_id"])){
                 <a href="#">Service</a>
                 <a href="#">Contact</a>
                 <?php if ($showAdminLink): ?>
-            <a href="admin/choix.php">Administration</a>
+            <a href="admin/admin.php">Administration</a>
             <?php endif; ?>
             <?php if (isset($user)): ?> <!-- Vérifie si l'utilisateur est connecté -->
                 <button onclick="window.location.href='login/deconnexion.php';" class="btnLogin-popup" name="valider"><?= htmlspecialchars($user["nom"]) ?></button> <!-- Affiche le bouton de déconnexion -->
