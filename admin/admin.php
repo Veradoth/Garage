@@ -41,7 +41,7 @@
 
                     $save_voiture = $connexion->prepare('INSERT INTO voiture(immatriculation, marque, modele, mise_circulation, prix, date_rentree, chevaux, descrip, nom_image) VALUES(?,?,?,?,?,?,?,?,?)'); // Prépare une requête SQL d'insertion dans la table 'voiture'
                     $save_voiture->execute(array($imma, $marque, $modele, $mise_circulation, $prix, $rentree, $chevaux, $descrip, $name_file)); // Exécute la requête d'insertion avec les valeurs fournies
-                    echo "Véhicule enregistré"; // Affiche un message de confirmation d'enregistrement du véhicule
+                    echo "Véhicule enregistrée"; // Affiche un message de confirmation d'enregistrement du véhicule
                 }
     ?>
 
