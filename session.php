@@ -1,13 +1,39 @@
 <?php
-    session_start(); // Démarre la session
+session_start(); // Démarre la session
 
-    if (isset($_SESSION["user_id"])){ // Vérifie si l'ID de l'utilisateur est défini dans la session
-        $connexion = require __DIR__ . "/login/connexion_user.php"; // Inclut et assigne la connexion à la base de données
+require_once __DIR__ . "/config/config.php"; // Inclut le fichier de configuration une seule fois
 
-        $sql = "SELECT * FROM utilisateur WHERE id = {$_SESSION["user_id"]}"; // Requête SQL pour récupérer un administrateur par son ID
+if (isset($_SESSION["admin_id"])) {
+    // Validation de l'ID de l'administrateur
+    $admin_id = intval($_SESSION["admin_id"]);
 
-        $result = $connexion->query($sql); // Exécute la requête SQL 
+    if ($admin_id > 0) {
+        // Utilisation de requêtes préparées pour éviter les injections SQL
+        $stmt = $connexion->prepare("SELECT * FROM administrateur WHERE id = ?");
+        $stmt->bind_param("i", $admin_id);
+        $stmt->execute();
+        $result = $stmt->get_result();
 
-        $user = $result->fetch_assoc(); // Récupère les données de l'administrateur sous forme de tableau associatif
+        if ($result->num_rows === 1) {
+            $admin = $result->fetch_assoc();
+        }
     }
+}
+
+if (isset($_SESSION["user_id"])) {
+    // Validation de l'ID de l'utilisateur
+    $user_id = intval($_SESSION["user_id"]);
+
+    if ($user_id > 0) {
+        // Utilisation de requêtes préparées pour éviter les injections SQL
+        $stmt = $connexion->prepare("SELECT * FROM utilisateur WHERE id = ?");
+        $stmt->bind_param("i", $user_id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        if ($result->num_rows === 1) {
+            $user = $result->fetch_assoc();
+        }
+    }
+}
 ?>

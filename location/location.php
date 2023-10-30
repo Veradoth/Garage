@@ -14,7 +14,7 @@
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="navbar-brand" href="../accueil.php">Accueil</a>
+        <a class="navbar-brand" href="../index.php">Accueil</a>
         <div class="collapse navbar-collapse" id= "navbarTogglerDemo03">
         <form class="d-flex" role="search" method="GET">
             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
@@ -30,7 +30,7 @@
             <div class="voiture">
 
                 <?php
-                require_once("../connexion.php");
+                require_once("../config/pdo.php");
                 $req=$connexion->prepare('SELECT * FROM voiture');
                 $req->execute();
                 while ($response=$req->fetch(PDO::FETCH_OBJ)){ ?>

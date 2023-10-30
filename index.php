@@ -1,6 +1,17 @@
 
 <?php
     require_once ("session.php");
+
+    $showAdminLink = false; // Par défaut, ne pas afficher le lien "Administration" s'il n'y a pas de connexion.
+
+if (isset($_SESSION["user_id"])) {
+    // L'utilisateur est connecté, donc le lien "Administration" doit être caché
+    $showAdminLink = false;
+}
+
+elseif (isset($_SESSION["admin_id"])){
+    $showAdminLink = true;
+}
 ?>
 
 <!DOCTYPE html>
@@ -28,12 +39,16 @@
                 <a href="#">A propos</a>
                 <a href="#">Service</a>
                 <a href="#">Contact</a>
-                <!--<a href="admin/admin.php">Administration</a>-->
-                <?php if (isset($user)): ?> <!-- Vérifie si l'utilisateur est connecté -->
-                    <button onclick="window.location.href='login/deconnexion.php';" class="btnLogin-popup" name="valider"><?= htmlspecialchars($user["nom"]) ?></button> <!-- Affiche le bouton de déconnexion -->
+                <?php if ($showAdminLink): ?>
+            <a href="admin/choix.php">Administration</a>
+            <?php endif; ?>
+            <?php if (isset($user)): ?> <!-- Vérifie si l'utilisateur est connecté -->
+                <button onclick="window.location.href='login/deconnexion.php';" class="btnLogin-popup" name="valider"><?= htmlspecialchars($user["nom"]) ?></button> <!-- Affiche le bouton de déconnexion -->
+            <?php elseif (isset($_SESSION["admin_id"])): ?>
+                <button onclick="window.location.href='login/deconnexion.php';" class="btnLogin-popup" name="valider"><?= htmlspecialchars($admin["nom"]) ?></button> <!-- Affiche le bouton de déconnexion -->
                 <?php else: ?>
-                    <button onclick="window.location.href='login/connecter.php';" class="btnLogin-popup" name="valider">Se connecter</button> <!-- Affiche le bouton de connexion -->
-                <?php endif; ?>
+                <button onclick="window.location.href='login/connexion.php';" class="btnLogin-popup" name="valider">Se connecter</button> <!-- Affiche le bouton de connexion -->
+            <?php endif; ?>
             </nav>
         </header>
 
@@ -47,4 +62,3 @@
         <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script> <!-- Inclut un script externe -->
     </body>
 </html>
-

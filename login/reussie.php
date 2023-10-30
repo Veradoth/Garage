@@ -9,6 +9,6 @@
         <h1>Inscription</h1>
 
         <p>Inscription réussie.</p>
-        <p>Vous pouvez maintenant vous <a href="connecter.php">connectés</a>.</p>
+        <p>Vous pouvez maintenant vous <a href="connexion.php">connectés</a>.</p>
     </body>
 </html>

@@ -13,7 +13,7 @@
                     echo "<p class= 'erreur'>".$erreur."</p>";
                 }
             ?>
-            <form action="signUp.php" method="POST" id="signup" novalidate>
+            <form action="signUp.php" method="POST" novalidate>
                 <div>
                     <label>Nom</label>
                     <input type="text" name="nom" id="nom">
@@ -35,11 +35,11 @@
                 </div>
 
                 <label>Vous avez déjà un compte ?</label>
-                <a href="connecter.php">Se connecter</a>
+                <a href="connexion.php">Se connecter</a>
                 <br>
                 <button type="submit" name="valider"> Enregistrer</button>
             </form>
-            <button onclick="window.location.href='../accueil.php';" class="btnLogin-popup">Retour</button>
+            <button onclick="window.location.href='../index.php';" class="btnLogin-popup">Retour</button>
         </section>
 
         <script src="https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js" defer></script>

@@ -25,7 +25,7 @@
 
     $password_hash = password_hash($_POST["mdp"], PASSWORD_DEFAULT); // Génère le hash du mot de passe à partir du champ "mdp"
 
-    $connexion = require __DIR__. "/connexion_user.php"; // Établit la connexion à la base de données
+    $connexion = require __DIR__. "/../config/config.php"; // Établit la connexion à la base de données
 
     $sql = "INSERT INTO utilisateur (nom, mail, mdp_hash) VALUES (?, ?, ?)"; // Requête SQL pour insérer les données dans la table "administrateur"
 
