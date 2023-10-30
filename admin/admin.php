@@ -10,7 +10,7 @@
     <?php
         if(isset($_GET['action'])){ // Vérifie si le paramètre 'action' est présent dans l'URL
             if($_GET['action'] == 'add_vehicule'){ // Vérifie si la valeur du paramètre 'action' est égale à 'add_vehicule'
-                require_once("../config/config.php"); // Inclusion du fichier connexion.php pour établir une connexion à la base de données
+                require_once("../config/pdo.php"); // Inclusion du fichier connexion.php pour établir une connexion à la base de données
 
                 if(isset($_POST['submit'])){ // Vérifie si le formulaire a été soumis (le bouton submit a été cliqué)
                     extract($_POST); // Extrait les données du formulaire dans des variables distinctes
