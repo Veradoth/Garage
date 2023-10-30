@@ -19,6 +19,9 @@
 
                     $tmp_file = $_FILES['fichier']['tmp_name']; // Récupère le chemin temporaire du fichier uploadé
 
+                    $tmp_dir = sys_get_temp_dir();
+                    echo "Le répertoire temporaire par défaut est : $tmp_dir";
+
                     if(!is_uploaded_file($tmp_file)) {
                         exit('le fichier est introuvable'); // Arrête l'exécution du code et affiche un message d'erreur si le fichier est introuvable
                     }
