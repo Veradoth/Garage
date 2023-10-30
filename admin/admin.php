@@ -10,7 +10,7 @@
     <?php
         if(isset($_GET['action'])){ // Vérifie si le paramètre 'action' est présent dans l'URL
             if($_GET['action'] == 'add_vehicule'){ // Vérifie si la valeur du paramètre 'action' est égale à 'add_vehicule'
-                require_once("../connexion.php"); // Inclusion du fichier connexion.php pour établir une connexion à la base de données
+                require_once("../config/config.php"); // Inclusion du fichier connexion.php pour établir une connexion à la base de données
 
                 if(isset($_POST['submit'])){ // Vérifie si le formulaire a été soumis (le bouton submit a été cliqué)
                     extract($_POST); // Extrait les données du formulaire dans des variables distinctes
@@ -67,7 +67,7 @@
 <?php
     if(isset($_GET['action'])){ // Vérifie si la variable GET 'action' est définie
         if($_GET['action'] == 'suppr_vehicule'){ // Vérifie si la valeur de 'action' est égale à 'suppr_vehicule'
-            require_once("../login/connexion_user.php"); // Inclut et exécute le fichier de connexion à la base de données
+            require_once("../config/config.php"); // Inclut et exécute le fichier de connexion à la base de données
             ?>
 
     <h3>Supprimer un véhicule</h3> <!-- Titre "Supprimer un véhicule" -->
@@ -96,7 +96,7 @@
 <?php
     if(isset($_GET['action'])){
         if($_GET['action'] == 'mod_vehicule'){
-            require_once("../login/connexion_user.php");
+            require_once("../config/config.php");
             ?>
         
         <h1>Modifier la voiture</h1>
