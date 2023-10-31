@@ -17,10 +17,7 @@
 
                     $content_dir='../../location/images/'; // Chemin du répertoire où les images seront stockées
 
-                    $tmp_file = $_FILES['fichier']['tmp_name']; // Récupère le chemin temporaire du fichier uploadé
-
-                    $tmp_dir = sys_get_temp_dir();
-                    echo "Le répertoire temporaire par défaut est : $tmp_dir";
+                    $tmp_file = '/var/www/Garage/admin/tmp/' . $_FILES['fichier']['name']; // Chemin temporaire complet du fichier uploadé
 
                     if(!is_uploaded_file($tmp_file)) {
                         exit('le fichier est introuvable'); // Arrête l'exécution du code et affiche un message d'erreur si le fichier est introuvable
