@@ -15,7 +15,7 @@
                 if(isset($_POST['submit'])){ // Vérifie si le formulaire a été soumis (le bouton submit a été cliqué)
                     extract($_POST); // Extrait les données du formulaire dans des variables distinctes
 
-                    $content_dir='../../location/images/'; // Chemin du répertoire où les images seront stockées
+                    $content_dir='../location/images/'; // Chemin du répertoire où les images seront stockées
 
                     $tmp_file = $_FILES['fichier']['tmp_name']; // Récupère le chemin temporaire du fichier uploadé
 
